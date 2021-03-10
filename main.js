@@ -1,19 +1,19 @@
-import gallery from "./gallery-items.js";
+import gallery from './gallery-items.js';
 
-const galleryItem = document.querySelector(".js-gallery");
-const modalItem = document.querySelector(".js-lightbox");
+const galleryItem = document.querySelector('.js-gallery');
+const modalItem = document.querySelector('.js-lightbox');
 const closeModalBtn = document.querySelector(
-  '.lightbox button[data-action="close-lightbox"]'
+  '.lightbox button[data-action="close-lightbox"]',
 );
-const changeModalImage = document.querySelector(".lightbox__image");
-const modalOverlay = document.querySelector(".lightbox__overlay");
+const changeModalImage = document.querySelector('.lightbox__image');
+const modalOverlay = document.querySelector('.lightbox__overlay');
 
 const galleryMarkup = createGalleryMakrup(gallery);
 
 galleryItem.innerHTML = galleryMarkup;
-galleryItem.addEventListener("click", onGalleryItemClick);
+galleryItem.addEventListener('click', onGalleryItemClick);
 
-closeModalBtn.addEventListener("click", onCloseModalBtn);
+closeModalBtn.addEventListener('click', onCloseModalBtn);
 
 function createGalleryMakrup(images) {
   return images
@@ -33,25 +33,25 @@ function createGalleryMakrup(images) {
       </a>
     </li>`;
     })
-    .join("");
+    .join('');
 }
 
 function onGalleryItemClick(evt) {
   evt.preventDefault();
 
-  if (evt.target.nodeName !== "IMG") {
+  if (evt.target.nodeName !== 'IMG') {
     return;
   }
 
-  modalItem.classList.add("is-open");
+  modalItem.classList.add('is-open');
   changeModalImage.src = evt.target.dataset.source;
   changeModalImage.alt = evt.target.alt;
 }
 
 function onCloseModalBtn(evt) {
-  modalItem.classList.remove("is-open");
-  changeModalImage.src = "";
-  changeModalImage.alt = "";
+  modalItem.classList.remove('is-open');
+  changeModalImage.src = '';
+  changeModalImage.alt = '';
 }
 
 /*# Критерии приема
